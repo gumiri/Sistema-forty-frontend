@@ -1,0 +1,15 @@
+.datePicker{
+
+    margin-right: 15px;
+}
+label{
+    margin-right: 15px;
+}
+.enviar{
+    margin-left:30px;
+}
+form{
+    position:relative;
+    left:15%;
+    margin-bottom: 10px;
+}

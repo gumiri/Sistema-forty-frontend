@@ -1,0 +1,49 @@
+<p>contas-receber works!</p>
+<div style="position:absolute; width: 95%; margin: 20px; overflow: hidden;">
+    <form (submit)="onSubmit()">
+        <label>Data de Vencimento</label>
+        <label>De: </label>
+        <input class="datePicker" type="date" [(ngModel)]="date1" name="date1">
+        <label>Até: </label>
+        <input class="datePicker" type="date" [(ngModel)]="date2" name="date2">
+        <label for="orderBy">Ordenar por:</label>
+        <select [(ngModel)]="orderBy" name="orderBy">
+            <option value="CNPJ">CNPJ</option>
+            <option value="NOME">NOME</option>
+        </select>
+        <input class="enviar" type="submit" value="Enviar">
+    </form>
+    <div style="min-height:250px;">
+        <table class="table table-bordered table-striped" style="width:100%; text-align: center;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">Valor</th>
+                    <th scope="col">Situação</th>
+                    <th scope="col">Data de Emissão</th>
+                    <th scope="col">Data de Vencimento</th>
+                    <th scope="col">Filial da divida</th>
+                    <th scope="col">Filiais do cliente</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let conta of contasReceber; index as i">
+                    <th scope="row">{{conta.NOME}}</th>
+                    <td>{{conta.CNPJ}}</td>
+                    <td>{{conta.SALDO | currency: 'R$'}}</td>
+                    <td>{{conta.ST}}</td>
+                    <td>{{conta.DTEMI | date: 'dd/M/yyyy'}}</td>
+                    <td>{{conta.DTVEN | date: 'dd/M/yyyy'}}</td>
+                    <td>{{conta.FILIAL}}</td>
+                    <td>{{conta.FILIAIS}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="loading$ |async" style="position:absolute; top:150px; left:500px;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
+</div>
