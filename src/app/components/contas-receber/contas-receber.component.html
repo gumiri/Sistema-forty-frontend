@@ -1,46 +1,55 @@
-<p>contas-receber works!</p>
-<div style="position:absolute; width: 95%; margin: 20px; overflow: hidden;">
-    <form (submit)="onSubmit()">
-        <label>Data de Vencimento</label>
-        <label>De: </label>
-        <input class="datePicker" type="date" [(ngModel)]="date1" name="date1">
-        <label>Até: </label>
-        <input class="datePicker" type="date" [(ngModel)]="date2" name="date2">
-        <label for="orderBy">Ordenar por:</label>
-        <select [(ngModel)]="orderBy" name="orderBy">
-            <option value="CNPJ">CNPJ</option>
-            <option value="NOME">NOME</option>
-        </select>
-        <input class="enviar" type="submit" value="Enviar">
-    </form>
+<div style="position:relative; width: 100%; overflow: hidden;">
+    <h2>Contas a Receber por Período</h2>
+    <div class="barra-superior">
+        <form (submit)="onSubmit()">
+            <label>Data de Vencimento</label>
+            <label>De: </label>
+            <input class="datePicker" type="date" [(ngModel)]="date1" name="date1">
+            <label>Até: </label>
+            <input class="datePicker" type="date" [(ngModel)]="date2" name="date2">
+            <label for="orderBy">Ordenar por:</label>
+            <select [(ngModel)]="orderBy" name="orderBy">
+                <option value="CNPJ">CNPJ</option>
+                <option value="NOME">NOME</option>
+            </select>
+            <input class="enviar" type="submit" value="Enviar">
+        </form>
+        <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
+        <button *ngIf="showExportButton">
+            <a (click)="exportExcel()">Exportar para Excel</a>
+        </button>
+    </div>
     <div style="min-height:250px;">
-        <table class="table table-bordered table-striped" style="width:100%; text-align: center;">
+        <table id="contasReceberTable" class="table table-bordered table-striped"
+            style="width:100%; text-align: center;">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">Nome</th>
+                    <th scope="col">NOME</th>
                     <th scope="col">CNPJ</th>
-                    <th scope="col">Valor</th>
-                    <th scope="col">Situação</th>
-                    <th scope="col">Data de Emissão</th>
-                    <th scope="col">Data de Vencimento</th>
-                    <th scope="col">Filial da divida</th>
-                    <th scope="col">Filiais do cliente</th>
+                    <th scope="col">VALOR</th>
+                    <th scope="col">SITUAÇÃO</th>
+                    <th scope="col">DATA DE EMISSÃO</th>
+                    <th scope="col">DATA DE VENCIMENTO</th>
+                    <th scope="col">ATRASO</th>
+                    <th scope="col">FILIAL DA DIVIDA</th>
+                    <th scope="col">FILIAIS DO CLIENTE</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let conta of contasReceber; index as i">
-                    <th scope="row">{{conta.NOME}}</th>
+                    <button (click)="goToHistoricoCliente(conta)"><th scope="row">{{conta.NOME}}</th></button>
                     <td>{{conta.CNPJ}}</td>
                     <td>{{conta.SALDO | currency: 'R$'}}</td>
                     <td>{{conta.ST}}</td>
                     <td>{{conta.DTEMI | date: 'dd/M/yyyy'}}</td>
                     <td>{{conta.DTVEN | date: 'dd/M/yyyy'}}</td>
+                    <td>{{conta.ATRASO}}</td>
                     <td>{{conta.FILIAL}}</td>
                     <td>{{conta.FILIAIS}}</td>
                 </tr>
             </tbody>
         </table>
-        <div *ngIf="loading$ |async" style="position:absolute; top:150px; left:500px;">
+        <div *ngIf="loading$ |async" style="position:absolute; top:200px; left:800px;">
             <div class="spinner-border" role="status">
                 <span class="sr-only"></span>
             </div>

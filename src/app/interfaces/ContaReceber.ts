@@ -6,6 +6,7 @@ export interface ContasReceber{
     FILIAL: String
     DTVEN: Date
     DTEMI: Date
+    ATRASO: number
     ESPE: String
     SERIE: String
     NRTIT: number

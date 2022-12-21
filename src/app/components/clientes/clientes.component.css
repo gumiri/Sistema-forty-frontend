@@ -1,0 +1,23 @@
+*{
+    overflow: hidden;
+}
+h2{
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 15px;
+    color: blue;
+    font-weight: bold;
+}
+.barra-superior{
+    position: relative;
+    min-height: 20px;
+    left: 40px;
+}
+.barra-superior label{
+    font-size: 20px;
+    padding-right: 5px;
+    text-align: center;
+}
+.pesquisa{
+    width: 300px;
+}
