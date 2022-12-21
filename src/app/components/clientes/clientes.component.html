@@ -1,0 +1,36 @@
+<div class="main-container-clientes">
+    <h2>Todos os clientes</h2>
+    <div class="barra-superior">
+        <label>pesquisar</label>
+        <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
+    </div>
+    <div style="min-height:250px;">
+        <table id="clientesTable" class="table table-bordered table-striped" style="width:100%; text-align: center;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">NOME</th>
+                    <th scope="col">CNPJ</th>
+                    <th scope="col">PESSOA</th>
+                    <th scope="col">ENDEREÇO</th>
+                    <th scope="col">FILIAIS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cliente of clientes | slice: 0:clienteRenderLimit">
+                    <button (click)="goToHistoricoCliente(cliente)">
+                        <th scope="row">{{cliente.NOME}}</th>
+                    </button>
+                    <td>{{cliente.CNPJ}}</td>
+                    <td>{{cliente.PESSOA}}</td>
+                    <td>{{cliente.ENDERECO}}</td>
+                    <td>{{cliente.FILIAIS}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="loading$ |async" style="position:absolute; top:300px; left:800px;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="./assets/logo-fort.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form (submit)="onSubmit()">
+      <input [(ngModel)]="user" type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input [(ngModel)]="password" type="password" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+  </div>
+</div>

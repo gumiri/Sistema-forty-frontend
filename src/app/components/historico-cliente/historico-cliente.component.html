@@ -1,0 +1,38 @@
+<h3>Cliente: <span>{{nomeCliente}}</span></h3>
+<h3>Filiais: <span>{{filiaisCliente}}</span></h3>
+<div style="min-height:250px; position: relative;">
+    <table id="contasReceberTable" class="table table-bordered table-striped"
+        style="width:100%; text-align: center;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">TÍTULO</th>
+                <th scope="col">DATA VENCIMENTO</th>
+                <th scope="col">DATA DE RECEBIMENTO</th>
+                <th scope="col">DIAS DE ATRASO</th>
+                <th scope="col">VALOR</th>
+                <th scope="col">VALOR PAGO</th>
+                <th scope="col">DIVIDA</th>
+                <th scope="col">PEDIDO</th>
+                <th scope="col">FILIAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of historicoCliente">
+                    <td>{{((cliente != null)? cliente.ESPE: 'null')}} {{cliente.NRTIT}} {{cliente.SERIE}}</td>
+                    <td>{{cliente.DTVEN | date: 'dd/M/yyyy'}}</td>
+                    <td>{{cliente.DTREC | date: 'dd/M/yyyy'}}</td>
+                    <td>{{cliente.ATRASO}}</td>
+                    <td>{{cliente.VLR | currency: 'R$'}}</td>
+                    <td>{{cliente.VLRPAGO | currency: 'R$'}}</td>
+                    <td>{{cliente.DIVIDA | currency: 'R$'}}</td>
+                    <td>{{cliente.PED}}</td>
+                    <td>{{cliente.FILIAL}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="loading$ |async" style="position:absolute; top:300px; left:800px;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+</div>

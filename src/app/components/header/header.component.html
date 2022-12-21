@@ -1,0 +1,95 @@
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+    <div class="position-sticky">
+      <div class="list-group list-group-flush mx-3 mt-4">
+        <a routerLink="/" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main</span>
+        </a>
+        <a *ngIf="auth.includes('contas-a-receber')" routerLink="/contas-a-receber"
+          class="list-group-item list-group-item-action py-2 ripple">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>Contas a Receber</span>
+        </a>
+        <a *ngIf="auth.includes('clientes')" routerLink="/clientes"
+          class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Todos
+            os Clientes</span></a>
+        <a *ngIf="auth.includes('material')" routerLink="/material"
+          class="list-group-item list-group-item-action py-2 ripple"><i
+            class="fas fa-chart-line fa-fw me-3"></i><span>Material</span></a>
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+
+  <!-- Navbar -->
+  <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+      <!-- Toggle button -->
+      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#sidebarMenu"
+        aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="./assets/logo-fort.png" height="25" alt="" loading="lazy" />
+      </a> 
+      <!-- Right links -->
+      <ul class="navbar-nav ms-auto d-flex flex-row">
+        <!-- Notification dropdown -->
+        
+
+        <!-- Icon -->
+        
+        <!-- Icon -->
+        
+        <!-- Icon dropdown -->
+        
+
+        <!-- Avatar -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
+            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">My profile</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px">
+  <div class="container pt-4">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<!--Main layout-->
+
+
+
+
+
+
+
+<!--
+<nav>
+    <img class="header-logo" src="./assets/logo-fort.png" alt="Fortyflex">
+    <div class="header-menu">
+        <a routerLink="/">home</a>
+        <a *ngIf="auth.includes('contas-a-receber')" routerLink="/contas-a-receber">contas a receber</a>
+        <a *ngIf="auth.includes('clientes')" routerLink="/clientes">clientes</a>
+        <a *ngIf="auth.includes('material')" routerLink="/material">material</a>
+    </div>
+</nav>
+<router-outlet></router-outlet>
+-->

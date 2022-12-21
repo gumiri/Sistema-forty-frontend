@@ -1,0 +1,30 @@
+h2{
+    font-size: 36px;
+    text-align: center;
+    padding-bottom: 15px;
+    color: blue;
+    font-weight: bold;
+}
+.datePicker{
+    margin-right: 15px;
+}
+label{
+    margin-right: 15px;
+}
+.enviar{
+    margin-left:30px;
+}
+.barra-superior{
+    width: 100%;
+    display: flex;
+    position:relative;
+    left:5%;
+    margin-bottom: 10px;
+}
+.barra-superior button{
+    margin-left: 10px;
+}
+
+.pesquisa{
+    margin-left: 20px;
+}
