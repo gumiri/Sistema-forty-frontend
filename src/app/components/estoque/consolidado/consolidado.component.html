@@ -1,0 +1,53 @@
+<div class="main-container-clientes">
+    <h2>Estoque Consolidado</h2>
+    <div class="barra-superior">
+        <label>pesquisar</label>
+        <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
+        <form (submit)="onSubmit()">
+            <label>A partir de:  //Ainda não funcionando!</label>
+            <input class="datePicker" type="date" [(ngModel)]="date" name="date1">
+        </form>
+    </div>
+    <app-estoque></app-estoque>
+    <button *ngIf="showExportButton">
+        <a (click)="exportExcel()">Exportar para Excel</a>
+    </button>
+    <div style="min-height:250px;">
+        <table id="estoque-consolidado-table" #estoque class="table table-bordered table-striped" style="width:100%; text-align: center;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">DESCRICAO</th>
+                    <th scope="col">FORNECEDORES</th>
+                    <th scope="col">FORTYFLEX</th>
+                    <th scope="col">ALPHAFLEX</th>
+                    <th scope="col">FORTYVINIL</th>
+                    <th scope="col">MANGMASTER</th>
+                    <th scope="col">SALDO ATUAL</th>
+                    <th scope="col">ESTOQUE ATUAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let estoque of estoqueTotal">
+                        <td>{{estoque.DESCRICAO}}</td>
+                        <td>{{estoque.FORNECEDORES}}</td>
+                        <td *ngIf="estoque.SALDOFORTYFLEX < 0" style="color:red;">{{estoque.SALDOFORTYFLEX}}</td>
+                        <td *ngIf="estoque.SALDOFORTYFLEX >= 0" style="color:blue;">{{estoque.SALDOFORTYFLEX}}</td>
+                        <td *ngIf="estoque.SALDOALPHAFLEX < 0" style="color:red;">{{estoque.SALDOALPHAFLEX}}</td>
+                        <td *ngIf="estoque.SALDOALPHAFLEX >= 0" style="color:blue;">{{estoque.SALDOALPHAFLEX}}</td>
+                        <td *ngIf="estoque.SALDOFORTYVINIL < 0" style="color:red;">{{estoque.SALDOFORTYVINIL}}</td>
+                        <td *ngIf="estoque.SALDOFORTYVINIL >= 0" style="color:blue;">{{estoque.SALDOFORTYVINIL}}</td>
+                        <td *ngIf="estoque.SALDOMANGMASTER < 0" style="color:red;">{{estoque.SALDOMANGMASTER}}</td>
+                        <td *ngIf="estoque.SALDOMANGMASTER >= 0" style="color:blue;">{{estoque.SALDOMANGMASTER}}</td>
+                        <td *ngIf="estoque.SALDOTOTAL < 0" style="color: rgb(255, 0, 191);">{{estoque.SALDOTOTAL}}</td>
+                        <td *ngIf="estoque.SALDOTOTAL >= 0" style="color:rgb(0, 251, 255);">{{estoque.SALDOTOTAL}}</td>
+                        <td style="color:green;">{{estoque.ESTOQUEATUAL}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="loading$ |async" style="position:absolute; top:300px; left:800px;">
+            <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+            </div>
+        </div>
+    </div>
+</div>

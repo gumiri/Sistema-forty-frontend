@@ -37,7 +37,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let conta of contasReceber; index as i">
-                    <button (click)="goToHistoricoCliente(conta)"><th scope="row">{{conta.NOME}}</th></button>
+                    <th (click)="goToHistoricoCliente(conta)" scope="row" style="cursor: pointer;">{{conta.NOME}}</th>
                     <td>{{conta.CNPJ}}</td>
                     <td>{{conta.SALDO | currency: 'R$'}}</td>
                     <td>{{conta.ST}}</td>

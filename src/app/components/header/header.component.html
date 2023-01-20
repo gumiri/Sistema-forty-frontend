@@ -14,9 +14,11 @@
         <a *ngIf="auth.includes('clientes')" routerLink="/clientes"
           class="list-group-item list-group-item-action py-2 ripple"><i class="fas fa-lock fa-fw me-3"></i><span>Todos
             os Clientes</span></a>
-        <a *ngIf="auth.includes('material')" routerLink="/material"
+        <a *ngIf="auth.includes('estoque')" routerLink="/estoque"
           class="list-group-item list-group-item-action py-2 ripple"><i
-            class="fas fa-chart-line fa-fw me-3"></i><span>Material</span></a>
+            class="fas fa-chart-line fa-fw me-3"></i><span>Estoque</span></a>
+        <button (click)="sair()" id="sair" class="list-group-item list-group-item-action py-2 ripple"><i
+            class="fas fa-chart-line fa-fw me-3"></i><span>Sair</span></button>
       </div>
     </div>
   </nav>
@@ -35,31 +37,7 @@
       <!-- Brand -->
       <a class="navbar-brand" href="#">
         <img src="./assets/logo-fort.png" height="25" alt="" loading="lazy" />
-      </a> 
-      <!-- Right links -->
-      <ul class="navbar-nav ms-auto d-flex flex-row">
-        <!-- Notification dropdown -->
-        
-
-        <!-- Icon -->
-        
-        <!-- Icon -->
-        
-        <!-- Icon dropdown -->
-        
-
-        <!-- Avatar -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
-            id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">My profile</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+      </a>
     </div>
     <!-- Container wrapper -->
   </nav>

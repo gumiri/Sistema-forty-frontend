@@ -17,9 +17,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let cliente of clientes | slice: 0:clienteRenderLimit">
-                    <button (click)="goToHistoricoCliente(cliente)">
-                        <th scope="row">{{cliente.NOME}}</th>
-                    </button>
+                    <th (click)="goToHistoricoCliente(cliente)" scope="row" style="cursor: pointer;">{{cliente.NOME}}</th>
                     <td>{{cliente.CNPJ}}</td>
                     <td>{{cliente.PESSOA}}</td>
                     <td>{{cliente.ENDERECO}}</td>

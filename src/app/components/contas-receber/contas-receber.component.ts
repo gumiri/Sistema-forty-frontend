@@ -5,8 +5,9 @@ import { catchError, Observable, Subscription } from 'rxjs';
 import { ContasReceber } from 'src/app/interfaces/ContaReceber';
 import * as XLSX from 'xlsx';
 import { Router } from '@angular/router';
-import { ClienteDataServiceService } from 'src/app/service/cliente-data-service.service';
+import { ClienteDataServiceService } from 'src/app/service/data-service/cliente-data-service.service';
 import { Clientes } from 'src/app/interfaces/Clientes';
+import { NavigationService } from 'src/app/service/navigation-service.service';
 
 
 @Component({
@@ -23,16 +24,17 @@ export class ContasReceberComponent implements OnInit {
   orderBy = "";
   showExportButton = false;
   public loading$ = this.contasReceberService.loading.asObservable();
-  fileName = 'contasReceber.xlsx'
+  fileName = 'contasReceber.xlsx';
   token = JSON.parse(localStorage.getItem('auth')!).token;
 
 
   constructor(private http: HttpClient,
     private contasReceberService: ContasReceberService,
     private clienteDataService: ClienteDataServiceService,
-    private router: Router
+    private router: Router,
+    private navigationService : NavigationService
   ) {
-    this.loadState();
+    
   }
 
   ngOnInit(): void {
@@ -42,7 +44,10 @@ export class ContasReceberComponent implements OnInit {
     else{
       this.showExportButton = false;
     }
-
+    if (this.navigationService.backUrl() == '/historico-cliente'){
+      this.loadState();
+    }
+    console.log(this.navigationService.backUrl());
   }
 
   debounce(fn: Function, time: number) {

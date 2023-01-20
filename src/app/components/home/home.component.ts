@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavigationService } from 'src/app/service/navigation-service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ export class HomeComponent implements OnInit {
 
   now = new Date();
 
-  constructor() { }
+  constructor(private navigationService : NavigationService) { }
 
   ngOnInit(): void {
     if (this.now > JSON.parse(localStorage.getItem('auth')!).expire){

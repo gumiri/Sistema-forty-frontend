@@ -2,9 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TodosClientesService } from 'src/app/service/todos-clientes.service';
 import { Clientes } from 'src/app/interfaces/Clientes';
-import { ClienteDataServiceService } from 'src/app/service/cliente-data-service.service';
+import { ClienteDataServiceService } from 'src/app/service/data-service/cliente-data-service.service';
 import { Router } from '@angular/router';
 import * as XLSX from 'xlsx';
+import { NavigationService } from 'src/app/service/navigation-service.service';
 
 @Component({
   selector: 'app-clientes',
@@ -25,7 +26,8 @@ export class ClientesComponent implements OnInit {
     private http: HttpClient,
     private todosClientesService: TodosClientesService,
     private clienteDataService: ClienteDataServiceService,
-    private router: Router
+    private router: Router,
+    private navigationService : NavigationService
   ) { }
 
   ngOnInit(): void {

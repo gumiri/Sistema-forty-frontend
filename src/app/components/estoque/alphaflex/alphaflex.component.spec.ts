@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MaterialComponent } from './material.component';
+import { AlphaflexComponent } from './alphaflex.component';
 
-describe('MaterialComponent', () => {
-  let component: MaterialComponent;
-  let fixture: ComponentFixture<MaterialComponent>;
+describe('AlphaflexComponent', () => {
+  let component: AlphaflexComponent;
+  let fixture: ComponentFixture<AlphaflexComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MaterialComponent ]
+      declarations: [ AlphaflexComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(MaterialComponent);
+    fixture = TestBed.createComponent(AlphaflexComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
