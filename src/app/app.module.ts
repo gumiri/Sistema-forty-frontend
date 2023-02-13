@@ -14,11 +14,8 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { EstoqueEntradaSaidaComponent } from './components/estoque/estoque-entrada-saida/estoque-entrada-saida.component';
 import { EstoqueComponent } from './components/estoque/estoque.component';
-import { AlphaflexComponent } from './components/estoque/alphaflex/alphaflex.component';
-import { FortyflexComponent } from './components/estoque/fortyflex/fortyflex.component';
-import { FortyvinilComponent } from './components/estoque/fortyvinil/fortyvinil.component';
-import { MangmasterComponent } from './components/estoque/mangmaster/mangmaster.component';
 import { ConsolidadoComponent } from './components/estoque/consolidado/consolidado.component';
+import { EstoquePorDataFortyflexComponent } from './components/estoque/estoque-por-data-fortyflex/estoque-por-data-fortyflex.component';
 
 @NgModule({
   declarations: [
@@ -32,11 +29,8 @@ import { ConsolidadoComponent } from './components/estoque/consolidado/consolida
     AuthenticationComponent,
     EstoqueEntradaSaidaComponent,
     EstoqueComponent,
-    AlphaflexComponent,
-    FortyflexComponent,
-    FortyvinilComponent,
-    MangmasterComponent,
-    ConsolidadoComponent
+    ConsolidadoComponent,
+    EstoquePorDataFortyflexComponent
   ],
   imports: [
     BrowserModule,

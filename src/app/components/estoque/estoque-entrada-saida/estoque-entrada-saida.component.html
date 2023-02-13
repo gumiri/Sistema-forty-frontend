@@ -3,6 +3,11 @@
     <div class="barra-superior">
         <label>pesquisar</label>
         <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
+        <form (submit)="onSubmit()">
+            <label>A partir de:</label>
+            <input class="datePicker" type="date" [(ngModel)]="date" name="date">
+            <input type="submit" value="Buscar">
+        </form>
     </div>
     <app-estoque></app-estoque>
     <button (click)="exportExcel()">Exportar para Excel</button>

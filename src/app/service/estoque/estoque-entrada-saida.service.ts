@@ -18,7 +18,7 @@ export class EstoqueEntradaSaidaService {
 
   constructor(private http: HttpClient) { }
 
-  getEstoqueES(token : string): Observable<Response<EstoqueES[]>> {
-    return this.http.get<Response<EstoqueES[]>>(this.url + 'estoque' + `?token=${token}`)
+  getEstoqueES(token : string, date: string): Observable<Response<EstoqueES[]>> {
+    return this.http.get<Response<EstoqueES[]>>(this.url + 'estoque' + `?token=${token}&date=${date}`)
   }
 }

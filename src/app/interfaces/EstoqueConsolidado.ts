@@ -5,6 +5,7 @@ export interface EstoqueConsolidado{
     SALDOFORTYVINIL : number,
     SALDOMANGMASTER : number,
     SALDOTOTAL : number,
+    ESTOQUENADATA: number,
     ESTOQUEATUAL: number,
     FORNECEDORES : string[]
 }

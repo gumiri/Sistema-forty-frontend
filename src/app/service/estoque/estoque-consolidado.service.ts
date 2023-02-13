@@ -17,7 +17,7 @@ export class EstoqueConsolidadoService {
 
   constructor(private http: HttpClient) { }
 
-  getEstoqueTotal(token : string): Observable<Response<EstoqueConsolidado[]>> {
-    return this.http.get<Response<EstoqueConsolidado[]>>(this.url + 'estoque-total' + `?token=${token}`)
+  getEstoqueTotal(token : string, date: string): Observable<Response<EstoqueConsolidado[]>> {
+    return this.http.get<Response<EstoqueConsolidado[]>>(this.url + 'estoque-total' + `?token=${token}&date=${date}`)
   }
 }

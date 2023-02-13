@@ -4,8 +4,9 @@
         <label>pesquisar</label>
         <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
         <form (submit)="onSubmit()">
-            <label>A partir de:  //Ainda não funcionando!</label>
-            <input class="datePicker" type="date" [(ngModel)]="date" name="date1">
+            <label>A partir de:</label>
+            <input class="datePicker" type="date" [(ngModel)]="date" name="date">
+            <input type="submit" value="Buscar">
         </form>
     </div>
     <app-estoque></app-estoque>
@@ -23,6 +24,7 @@
                     <th scope="col">FORTYVINIL</th>
                     <th scope="col">MANGMASTER</th>
                     <th scope="col">SALDO ATUAL</th>
+                    <th scope="col">ESTOQUE NA DATA</th>
                     <th scope="col">ESTOQUE ATUAL</th>
                 </tr>
             </thead>
@@ -40,6 +42,8 @@
                         <td *ngIf="estoque.SALDOMANGMASTER >= 0" style="color:blue;">{{estoque.SALDOMANGMASTER}}</td>
                         <td *ngIf="estoque.SALDOTOTAL < 0" style="color: rgb(255, 0, 191);">{{estoque.SALDOTOTAL}}</td>
                         <td *ngIf="estoque.SALDOTOTAL >= 0" style="color:rgb(0, 251, 255);">{{estoque.SALDOTOTAL}}</td>
+                        <td *ngIf="estoque.ESTOQUENADATA < 0" style="color:red;">{{estoque.ESTOQUENADATA}}</td>
+                        <td *ngIf="estoque.ESTOQUENADATA >= 0" style="color:blue;">{{estoque.ESTOQUENADATA}}</td>
                         <td style="color:green;">{{estoque.ESTOQUEATUAL}}</td>
                 </tr>
             </tbody>

@@ -3,6 +3,11 @@
     <div class="barra-superior">
         <label>pesquisar</label>
         <input class="pesquisa" type="text" placeholder="busca..." (input)="search($event)">
+        <form (submit)="onSubmit()">
+            <label>A partir de:</label>
+            <input class="datePicker" type="date" [(ngModel)]="date" name="date">
+            <input type="submit" value="Buscar">
+        </form>
     </div>
     <app-estoque></app-estoque>
     <div style="min-height:250px;">
@@ -10,24 +15,13 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">DESCRICAO</th>
-                    <th scope="col">DATA ULTIMA COMPRA</th>
-                    <th scope="col">QUANTIDADE ULTIMA COMPRA</th>
-                    <th scope="col">QTVENDIDA</th>
-                    <th scope="col">QUANTIDADE COMPRADA</th>
-                    <th scope="col">MÉDIA VENDIDA/ MÊS</th>
-                    <th scope="col">SALDO</th>
+                    <th scope="col">QTD</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let estoque of estoqueFortyflex">
                         <td>{{estoque.DESCRICAO}}</td>
-                        <td>{{estoque.DATAULTIMACOMPRA | date: 'dd/M/yyyy'}}</td>
-                        <td>{{estoque.QUANTIDADEULTIMACOMPRA}}</td>
-                        <td>{{estoque.QTVENDIDA}}</td>
-                        <td>{{estoque.QUANTIDADECOMPRADA}}</td>
-                        <td>{{estoque.MEDIAMENSAL | number : '0.0-0'}}</td>
-                        <td *ngIf="estoque.SALDO < 0 " style="color: red;">{{estoque.SALDO}}</td>
-                        <td *ngIf="estoque.SALDO >= 0 " style="color: BLUE;">{{estoque.SALDO}}</td>
+                        <td>{{estoque.QTD}}</td>
                 </tr>
             </tbody>
         </table>
