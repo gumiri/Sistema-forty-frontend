@@ -1,5 +1,11 @@
 # ProjetoLabEngSoftware
 
+Frontend do sistema de automatização de relatórios e consolidação de dados feito para Fortyflex
+
+Autor: Gustavo Miranda Ricardo
+
+# Angular
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
 
 ## Development server
